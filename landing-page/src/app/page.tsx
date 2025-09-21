@@ -2,12 +2,13 @@ import { BackgroundPaths } from "@/components/ui/background-paths";
 import DigitalSerenity from "@/components/ui/digital-serenity-animated-landing-page";
 import MemoryPrinciplesPage from "@/components/ui/memory-principles-page";
 import RevelationInteractivePage from "@/components/ui/revelation-interactive-page";
-import { AboutSection } from "@/components/about-section";
+// import { AboutSection } from "@/components/about-section";
 import { LampDemo } from "@/components/ui/lamp";
 import { MnemoflowFeatures } from "@/components/ui/features-mnemoflow";
 import ToothpasteDialoguePage from "@/components/ui/toothpaste-dialogue-page";
 import CyberneticBentoGrid from "@/components/ui/cybernetic-bento-grid";
 import QandAAccordion from "@/components/ui/qa-accordion";
+import AnimatedHero from "@/components/ui/animated-hero";
 
 export default function Home() {
   return (
@@ -51,8 +52,8 @@ export default function Home() {
         <QandAAccordion />
       </section>
 
-      {/* 第十页：关于页面 */}
-      <AboutSection />
+      {/* 第十页：Call To Action */}
+      <AnimatedHero />
     </main>
   );
 }

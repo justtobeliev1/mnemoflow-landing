@@ -39,7 +39,7 @@ const BentoItem = ({ className = "", children }: { className?: string; children:
 export const CyberneticBentoGrid = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100">
-      <GridBackground className="absolute inset-0 w-full h-full" />
+      <GridBackground className="absolute inset-0 w-full h-full" startOnView />
       <div className="relative z-10 w-full mx-auto max-w-6xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
         <h1 className="text-4xl sm:text-5xl font-bold text-white text-center mb-8">
           Mnemoflow，不止于Mnemonic

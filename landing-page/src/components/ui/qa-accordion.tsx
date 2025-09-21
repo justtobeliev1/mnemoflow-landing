@@ -7,13 +7,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function QandAAccordion() {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100">
-      <GridBackground className="absolute inset-0 w-full h-full" />
+      <GridBackground className="absolute inset-0 w-full h-full" startOnView />
       <div className="relative z-10 w-full mx-auto max-w-4xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-8">
           关于 Mnemoflow，你可能想问
         </h2>
 
-        <Accordion type="multiple" className="w-full" defaultValue={["q1"]}>
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="q1">
             <AccordionTrigger className="text-left">
               <span className="font-semibold">Q1: 助记词会不会反而增加了我的记忆负担？</span>
@@ -36,9 +36,11 @@ export default function QandAAccordion() {
               <span className="font-semibold">Q2: 这种联想记忆，会不会不够精确？</span>
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-300 leading-relaxed">
-                <strong className="font-extrabold">A:</strong> 我们的目标是高效解决从“完全不认识”到“能识别、能理解”的核心问题。助记词，配合精准的读音和生动的场景故事，足以让你对单词的<strong className="font-extrabold">核心释义</strong>形成八九不离十的准确记忆。词汇的精细化辨析和拼写巩固，可以在你实际阅读和使用中得到快速补全。我们帮你打通了最难的“初次见面”环节。
-              </p>
+              <div className="space-y-3 text-slate-300 leading-relaxed">
+                <p><strong className="font-extrabold">A:</strong> 我们的目标是高效解决从“完全不认识”到“能识别、能理解”的核心问题。</p>
+                <p>助记词配合精准读音与生动的场景故事，足以让你对单词的<strong className="font-extrabold">核心释义</strong>形成八九不离十的准确记忆。</p>
+                <p>词汇的精细化辨析与拼写巩固，可在真实阅读与使用中快速补全；Mnemoflow帮你打通了最难的“初次见面”环节。</p>
+              </div>
             </AccordionContent>
           </AccordionItem>
 
@@ -47,9 +49,11 @@ export default function QandAAccordion() {
               <span className="font-semibold">Q3: 如果 AI 生成的助记词我不喜欢或觉得不合理怎么办？</span>
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-300 leading-relaxed">
-                <strong className="font-extrabold">A:</strong> 我们完全理解创造力是主观的。因此，Mnemoflow 提供了“重新生成”功能，你可以随时让 AI 给你提供新的记忆角度。你的每一次选择和反馈，也会帮助我们的模型不断进化，为你提供更优质的连接方案。
-              </p>
+              <div className="space-y-3 text-slate-300 leading-relaxed">
+                <p><strong className="font-extrabold">A:</strong> 我们理解创造力具有主观性。</p>
+                <p>Mnemoflow 提供<strong className="font-extrabold">重新生成</strong>功能，你可随时获得全新记忆角度。</p>
+                <p>你的每一次选择与反馈，也在持续帮助模型进化，提供更优质的连接方案。</p>
+              </div>
             </AccordionContent>
           </AccordionItem>
 
@@ -58,9 +62,11 @@ export default function QandAAccordion() {
               <span className="font-semibold">Q4: 这和词根词缀记忆法有什么不同？</span>
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-300 leading-relaxed">
-                <strong className="font-extrabold">A:</strong> 词根词缀是一种优秀的<strong className="font-extrabold">“逻辑连接”</strong>方式，Mnemoflow 完全支持并尊重它。但并非所有单词都有清晰的词根来源。当逻辑路径走不通时，传统方法只能退回死记硬背。而 Mnemoflow 则能开启<strong className="font-extrabold">“创造性连接”</strong>的路径，通过谐音、联想等方式，为那些“不讲道理”的单词架设桥梁。它们是两种强大的、互为补充的思维武器。
-              </p>
+              <div className="space-y-3 text-slate-300 leading-relaxed">
+                <p><strong className="font-extrabold">A:</strong> 词根词缀是一种优秀的<strong className="font-extrabold">逻辑连接</strong>方式，Mnemoflow 完全支持这种方式。</p>
+                <p>但并非所有单词都有清晰词源；当逻辑路径走不通时，传统方法容易退回死记硬背。</p>
+                <p>Mnemoflow 能开启<strong className="font-extrabold">创造性连接</strong>路径：谐音、联想等，为“不讲道理”的单词架桥铺路——二者是互补的思维武器。</p>
+              </div>
             </AccordionContent>
           </AccordionItem>
 
@@ -70,8 +76,8 @@ export default function QandAAccordion() {
             </AccordionTrigger>
             <AccordionContent>
               <div className="text-slate-300 leading-relaxed space-y-3">
-                <p><strong className="font-extrabold">A:</strong> 如果你有一定的词汇基础（如大学及以上水平的学习者、职场人士），渴望高效、大规模地扩充你的积极词汇量，那么 Mnemoflow 将是你的利器。</p>
-                <p>你更看重在阅读和交流中对单词的快速反应和理解，而非在考试中对偏僻单词的精准拼写。你相信学习应该是聪明和有趣的，并愿意拥抱 AI 带来的全新可能性。</p>
+                <p><strong className="font-extrabold">A:</strong> 如果你有一定的词汇基础（大学及以上、或职场用户），并希望高效大规模扩充你的<strong className="font-extrabold">积极词汇量</strong>，Mnemoflow 将非常适合你。</p>
+                <p>你更看重在阅读与交流中的快速反应与理解，而非考试中对偏僻词的精准拼写；你相信学习应当高效且有趣，并愿意拥抱 AI 的新可能。</p>
                 <p className="text-sm text-slate-400">（对于备考的高中生，Mnemoflow 同样能极大提升记忆效率，但我们建议你配合课后练习，补全拼写短板。）</p>
               </div>
             </AccordionContent>

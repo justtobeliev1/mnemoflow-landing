@@ -7,13 +7,13 @@ import GridBackground from '@/components/ui/grid-background'
 export function MnemoflowFeatures() {
     return (
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-black to-slate-800 py-16 md:py-32 text-slate-100">
-            <GridBackground className="absolute inset-0 w-full h-full" />
+            <GridBackground className="absolute inset-0 w-full h-full" startOnView />
             <div className="relative z-10 mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
                 {/* 1. 文本内容已被替换 */}
-                <div className="relative z-10 max-w-full">
+                <div className="relative z-10 max-w-2xl">
                     <h2 className="text-4xl font-semibold lg:text-5xl">这，就是 Mnemoflow 为你构建的记忆连接</h2>
                     <p className="mt-6 text-lg text-gray-300">
-                        我们不满足于传统的“一词一图”。Mnemoflow 的核心是为每个单词创造一个情节新奇、逻辑自洽且能引发情感共鸣的个性化记忆场景。
+                        区别于传统的“一词一图”<br />Mnemoflow 为每个单词创造一个情节新奇、逻辑自洽且能引发情感共鸣的记忆场景<br />帮助你构建单词中英文间的连接。
                     </p>
                 </div>
 

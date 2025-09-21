@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useScrollTrigger } from '@/hooks/useScrollTrigger';
 import GridBackground from "@/components/ui/grid-background";
+import { motion } from 'framer-motion';
 
 interface Ripple {
   id: number;
@@ -25,24 +26,47 @@ const DigitalSerenity = () => {
   const [ripples, setRipples] = useState<Ripple[]>([]);
   const [scrolled, setScrolled] = useState(false);
   const floatingElementsRef = useRef<HTMLElement[]>([]);
-  const { ref, isVisible } = useScrollTrigger();
+  const { ref, isVisible } = useScrollTrigger({ threshold: 0.1 });
 
-  useEffect(() => {
-    if (!isVisible) return;
+  // Simplified word animation trigger, now controlled by framer-motion directly
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.06,
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-    const animateWords = () => {
-      const wordElements = document.querySelectorAll('.word-animate');
-      wordElements.forEach(word => {
-        const delay = parseInt(word.getAttribute('data-delay') || '0');
-        setTimeout(() => {
-          if (word instanceof HTMLElement) word.style.animation = 'word-appear 0.8s ease-out forwards';
-        }, delay);
-      });
-    };
-    const timeoutId = setTimeout(animateWords, 500);
-    return () => clearTimeout(timeoutId);
-  }, [isVisible]);
+  const letter = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        damping: 15,
+        stiffness: 200,
+      },
+    },
+  };
 
+  const subtitle = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        damping: 15,
+        stiffness: 100,
+        delay: 1.2,
+      },
+    },
+  };
+  
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMouseGradientStyle({
@@ -66,22 +90,22 @@ const DigitalSerenity = () => {
   useEffect(() => {
     const elements = document.querySelectorAll('.floating-element-animate');
     floatingElementsRef.current = Array.from(elements) as HTMLElement[];
-    const handleScroll = () => {
-      if (!scrolled) {
-        setScrolled(true);
-        floatingElementsRef.current.forEach((el, index) => {
-          setTimeout(() => {
-            if (el instanceof HTMLElement) {
-              el.style.animationPlayState = 'running';
-              el.style.opacity = '';
-            }
-          }, (parseFloat((el as HTMLElement).style.animationDelay || "0") * 1000) + index * 100);
-        });
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+    // This effect is now controlled by isVisible from useScrollTrigger
+  }, []);
+
+  useEffect(() => {
+    if (isVisible && !scrolled) {
+      setScrolled(true); // Fire only once
+      floatingElementsRef.current.forEach((el, index) => {
+        setTimeout(() => {
+          if (el instanceof HTMLElement) {
+            el.style.animationPlayState = 'running';
+            el.style.opacity = '';
+          }
+        }, (parseFloat((el as HTMLElement).style.animationDelay || "0") * 1000) + index * 100);
+      });
+    }
+  }, [isVisible, scrolled]);
 
   const pageStyles = `
     #mouse-gradient-react {
@@ -106,7 +130,7 @@ const DigitalSerenity = () => {
     <>
       <style>{pageStyles}</style>
       <div ref={ref} className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100 font-primary overflow-hidden relative">
-        <GridBackground>
+        <GridBackground startOnView>
           {/* Responsive Corner Elements */}
           <div className="corner-element-animate top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8" style={{ animationDelay: '4s' }}>
             <div className="absolute top-0 left-0 w-2 h-2 bg-slate-300 opacity-30 rounded-full"></div>
@@ -130,32 +154,34 @@ const DigitalSerenity = () => {
           <div className="relative z-10 min-h-screen flex flex-col justify-between items-center px-6 py-10 sm:px-8 sm:py-12 md:px-16 md:py-20">
             <div className="text-center">
               <h2 className="text-xs sm:text-sm font-mono font-light text-slate-300 uppercase tracking-[0.2em] opacity-80">
-                <span className="word-animate" data-delay="0">Mnemoflow</span>
-                <span className="word-animate" data-delay="300">Design</span>
-                <span className="word-animate" data-delay="600">Philosophy</span>
+                <motion.span variants={letter}>Mnemoflow</motion.span> <motion.span variants={letter}>Design</motion.span> <motion.span variants={letter}>Philosophy</motion.span>
               </h2>
               <div className="mt-4 w-12 sm:w-16 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-30 mx-auto"></div>
             </div>
 
             <div className="text-center max-w-5xl mx-auto relative">
               {/* Responsive Main Heading Sizes */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-slate-50 text-decoration-animate">
+              <motion.h1 
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-slate-50 text-decoration-animate"
+                variants={sentence}
+                initial="hidden"
+                animate={isVisible ? 'visible' : 'hidden'}
+              >
                 <div className="mb-8 md:mb-12 whitespace-nowrap">
-                  <span className="word-animate" data-delay="700">记</span>
-                  <span className="word-animate" data-delay="800">忆</span>
-                  <span className="word-animate" data-delay="900">的</span>
-                  <span className="word-animate" data-delay="1000">第</span>
-                  <span className="word-animate" data-delay="1100">一</span>
-                  <span className="word-animate" data-delay="1200">性</span>
-                  <span className="word-animate" data-delay="1300">原</span>
-                  <span className="word-animate" data-delay="1400">理</span>
+                  {'记忆的第一性原理'.split('').map((char, index) => (
+                    <motion.span key={index} variants={letter}>
+                      {char}
+                    </motion.span>
+                  ))}
                 </div>
                 {/* Responsive Secondary Heading Sizes & Added tracking-wide for letter spacing */}
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-thin text-slate-300 leading-relaxed tracking-wide text-right pr-8">
-                  <span className="word-animate" data-delay="1600">——创建连接</span>
-                  <span className="word-animate" data-delay="1900">而非机械记忆</span>
-                </div>
-              </h1>
+                <motion.div 
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-thin text-slate-300 leading-relaxed tracking-wide text-right pr-8"
+                  variants={subtitle}
+                >
+                  ——创建连接，而非机械记忆
+                </motion.div>
+              </motion.h1>
               {/* Responsive Detail Line Offsets */}
               <div className="absolute -left-6 sm:-left-8 top-1/2 transform -translate-y-1/2 w-3 sm:w-4 h-px bg-slate-300 opacity-0" style={{ animation: 'word-appear 1s ease-out forwards', animationDelay: '3.2s' }}></div>
               <div className="absolute -right-6 sm:-right-8 top-1/2 transform -translate-y-1/2 w-3 sm:w-4 h-px bg-slate-300 opacity-0" style={{ animation: 'word-appear 1s ease-out forwards', animationDelay: '3.4s' }}></div>
@@ -163,11 +189,14 @@ const DigitalSerenity = () => {
 
             <div className="text-center">
               <div className="mb-4 w-12 sm:w-16 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent opacity-30 mx-auto"></div>
-              <h2 className="text-xs sm:text-sm font-mono font-light text-slate-300 uppercase tracking-[0.2em] opacity-80">
-                <span className="word-animate" data-delay="3000">Flow</span>
-                <span className="word-animate" data-delay="3200">State</span>
-                <span className="word-animate" data-delay="3400">Learning</span>
-              </h2>
+              <motion.h2 
+                className="text-xs sm:text-sm font-mono font-light text-slate-300 uppercase tracking-[0.2em] opacity-80"
+                variants={sentence}
+                initial="hidden"
+                animate={isVisible ? 'visible' : 'hidden'}
+              >
+                <motion.span variants={letter}>Flow</motion.span> <motion.span variants={letter}>State</motion.span> <motion.span variants={letter}>Learning</motion.span>
+              </motion.h2>
               <div className="mt-6 flex justify-center space-x-4 opacity-0" style={{ animation: 'word-appear 1s ease-out forwards', animationDelay: '4.2s' }}>
                 <div className="w-1 h-1 bg-slate-300 rounded-full opacity-40"></div>
                 <div className="w-1 h-1 bg-slate-300 rounded-full opacity-60"></div>

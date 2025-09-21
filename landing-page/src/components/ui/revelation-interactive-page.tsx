@@ -78,7 +78,7 @@ export default function RevelationInteractivePage() {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100 font-primary overflow-hidden relative">
-      <GridBackground>
+      <GridBackground startOnView>
         <div className="relative z-10 min-h-screen flex flex-col w-full px-6 py-16 sm:px-8 md:px-16 md:py-24">
           <div className="w-full max-w-screen-2xl mx-auto">
             <h2 className="text-left font-extrabold tracking-tight text-2xl md:text-4xl lg:text-5xl">

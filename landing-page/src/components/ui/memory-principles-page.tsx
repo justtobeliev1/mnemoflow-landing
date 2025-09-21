@@ -14,7 +14,7 @@ import GridBackground from "@/components/ui/grid-background";
 const MemoryPrinciplesPage = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100 flex flex-col justify-start">
-      <GridBackground className="w-full">
+      <GridBackground className="w-full" startOnView>
         <div className="relative z-10 w-full px-6 py-24 sm:px-12 md:px-16 lg:px-24">
           {/* 左上角标题 */}
           <h2 className="text-left font-extrabold tracking-tight text-slate-100 text-3xl md:text-5xl lg:text-6xl pt-24">
