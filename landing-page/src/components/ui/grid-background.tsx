@@ -49,7 +49,6 @@ const GridBackground = React.forwardRef<HTMLDivElement, GridBackgroundProps>(
     const attachRef = (node: HTMLDivElement | null) => {
       wrapperRef.current = node;
       if (typeof ref === "function") ref(node);
-      // @ts-expect-error forwardRef may be MutableRefObject
       if (ref && typeof ref !== "function") ref.current = node;
     };
 
