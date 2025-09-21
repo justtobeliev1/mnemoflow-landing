@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FlowButton } from "@/components/ui/flow-button";
+import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 
 function FloatingPaths({ position }: { position: number }) {
     const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -56,9 +57,10 @@ export function BackgroundPaths({
     title?: string;
 }) {
     const words = title.split(" ");
+    const { ref, isVisible } = useScrollTrigger();
 
     return (
-        <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-neutral-950">
+        <div ref={ref} className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-neutral-950">
             <div className="absolute inset-0">
                 <FloatingPaths position={1} />
                 <FloatingPaths position={-1} />
@@ -67,7 +69,7 @@ export function BackgroundPaths({
             <div className="relative z-10 container mx-auto px-4 md:px-6 text-center">
                 <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 2 }}
                     className="max-w-4xl mx-auto flex flex-col items-center"
                 >
@@ -107,8 +109,8 @@ export function BackgroundPaths({
                         <div
                             className="mt-4 inline-block group cursor-pointer text-white/70 hover:text-white/90 transition-colors duration-300 text-sm"
                             onClick={() => {
-                                // 滚动到介绍页面部分
-                                document.getElementById('about-section')?.scrollIntoView({
+                                // 滚动到第一性原理页面
+                                document.getElementById('first-principles-section')?.scrollIntoView({
                                     behavior: 'smooth'
                                 });
                             }}
