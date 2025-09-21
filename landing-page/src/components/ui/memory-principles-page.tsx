@@ -44,7 +44,7 @@ const MemoryPrinciplesPage = () => {
                   </div>
                   <div className="space-y-3 md:space-y-4">
                     <h3 className="text-base md:text-lg font-semibold text-slate-100">
-                      卡片 A：当大脑顺应天性
+                      当大脑顺应天性
                     </h3>
                     <p className="text-sm md:text-base leading-relaxed text-slate-300">
                       <span className="font-semibold text-slate-200">
@@ -97,7 +97,7 @@ const MemoryPrinciplesPage = () => {
                   </div>
                   <div className="space-y-3 md:space-y-4">
                     <h3 className="text-base md:text-lg font-semibold text-slate-100">
-                      卡片 B：当我们强迫大脑
+                      当我们强迫大脑
                     </h3>
                     <p className="text-sm md:text-base leading-relaxed text-slate-300">
                       <span className="font-semibold text-slate-200">

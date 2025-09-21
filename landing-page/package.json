@@ -13,22 +13,23 @@
   "license": "ISC",
   "description": "Mnemoflow product landing page",
   "dependencies": {
-    "next": "^15.5.3",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "framer-motion": "^11.0.0",
+    "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0",
-    "lucide-react": "^0.263.1"
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.263.1",
+    "next": "^15.5.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "24.5.2",
     "@types/react": "19.1.13",
-    "typescript": "5.9.2",
-    "tailwindcss": "^3.4.0",
     "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0"
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "5.9.2"
   }
 }
