@@ -37,7 +37,7 @@ const REVELATIONS: Array<React.ReactNode> = [
     <div key="one" className="space-y-4">
       <h3 className="text-2xl md:text-3xl font-bold mb-6">现象之痛：为何记单词如此“费力”？</h3>
       <p className="text-slate-300 leading-relaxed font-light">
-        传统的“拼写-发音-释义”方法，是一种<strong className="font-extrabold">蛮力链接</strong>。它强迫你的大脑进行孤立的、高强度的匹配工作，每一次记忆都是一次强行将两个神经元建立联系的苦旅。
+        传统的“拼写-发音-释义”方法，是一种<strong className="font-extrabold">蛮力链接</strong>。它强迫你的大脑进行孤立的、高强度的匹配工作，每一次记忆都在强行让两个隔得很远的神经元建立联系。
       </p>
       <p className="text-slate-300 leading-relaxed font-light">
         尽管付出了高昂的<strong className="font-extrabold">时间和意志力成本</strong>，却且效率低下。因为这种方式完全忽略了大脑最擅长的事情——寻找模式和建立连接。你所进行的，是一种<strong className="font-extrabold">知识的线性增长</strong>，而非<strong className="font-extrabold">指数级成长</strong>。
@@ -53,9 +53,9 @@ const REVELATIONS: Array<React.ReactNode> = [
       <div className="space-y-2 text-slate-300">
         <p className="font-light"><strong className="font-extrabold">你的母语：</strong>汉语的发音、字形、文化典故，本应是最佳的记忆锚点。</p>
         <p className="font-light"><strong className="font-extrabold">你的生活经验：</strong>所有的情感、故事、画面，本应是赋予单词生命力的调料。</p>
-        <p className="font-light"><strong className="font-extrabold">你已有的知识网络：</strong>已经掌握的英文单词和语法逻辑，本应成为新知识的轴心。</p>
+        <p className="font-light"><strong className="font-extrabold">你已有的知识网络：</strong>已经掌握的英文单词和语法逻辑，本应成为新知识的根基。</p>
       </div>
-      <p className="text-slate-300 leading-relaxed font-light">你的知识库本应像雪球一样越滚越大，但现在，它只是在艰难地堆沙成塔。</p>
+      <p className="text-slate-300 leading-relaxed font-light">你的词汇量本应像雪球一样越滚越大，但现在，它只是在艰难地堆沙成塔。</p>
     </div>
   ),
   (
@@ -68,7 +68,7 @@ const REVELATIONS: Array<React.ReactNode> = [
         机械重复的过程，不仅枯燥，更在持续不断地削弱我们最宝贵的东西：<strong className="font-extrabold">好奇心、成就感、以及探索未知的乐趣</strong>。
       </p>
       <p className="text-slate-300 leading-relaxed font-light">它创造了一个恶性循环：<br/> <strong className="font-extrabold">枯燥 → 抵触 → 遗忘 → 挫败</strong></p>
-      <p className="text-slate-300 leading-relaxed font-light">当学习的火花被彻底熄灭，再高效的工具也无济于事。我们的最终目标，是<strong className="font-extrabold">将这场痛苦的“重复”，重新变回一场充满惊喜的“冒险”</strong>。</p>
+      <p className="text-slate-300 leading-relaxed font-light">当学习的火花被彻底熄灭，再高效的工具也无济于事。我们的最终目标，是<strong className="font-extrabold">将这重痛苦的“重复”，重新变回一场轻松有趣的连接游戏</strong>。</p>
     </div>
   ),
 ];

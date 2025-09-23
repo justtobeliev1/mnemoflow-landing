@@ -43,8 +43,8 @@ export function AnimatedHero() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl leading-relaxed tracking-tight text-slate-300 max-w-2xl text-center mt-2 md:mt-3">
-              当 AI 的创造力，遇上你与生俱来的理解力，记忆便不再是负担，而是一场充满“原来如此”的流动之旅。
+            <p className="text-base md:text-lg leading-relaxed tracking-tight font-light text-slate-300 max-w-2xl text-center mt-2 md:mt-3">
+              当 AI 的创造力，遇上你与生俱来的理解力<br />记忆便不再是负担，而是一场充满“原来如此”的流动之旅。在这里，每个单词都有它的故事，以意想不到的形式与你邂逅<br />开启你的<strong> MnemoFlow </strong>之旅吧！
             </p>
           </div>
 

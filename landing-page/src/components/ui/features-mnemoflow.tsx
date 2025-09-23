@@ -13,7 +13,7 @@ export function MnemoflowFeatures() {
                 <div className="relative z-10 max-w-2xl">
                     <h2 className="text-4xl font-semibold lg:text-5xl">这，就是 Mnemoflow 为你构建的记忆连接</h2>
                     <p className="mt-6 text-lg text-gray-300">
-                        区别于传统的“一词一图”<br />Mnemoflow 为每个单词创造一个情节新奇、逻辑自洽且能引发情感共鸣的记忆场景<br />帮助你构建单词中英文间的连接。
+                        告别死记硬背<br />Mnemoflow 为每个单词创造一个情节新奇、逻辑自洽且能引发情感共鸣的记忆场景<br />帮助你快速构建单词中英文间的连接
                     </p>
                 </div>
 

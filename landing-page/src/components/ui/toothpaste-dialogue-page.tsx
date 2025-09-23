@@ -52,10 +52,10 @@ export default function ToothpasteDialoguePage() {
               <GridPatternCard className="rounded-xl border-zinc-800 bg-zinc-950 w-full">
               <GridPatternCardBody className="pl-10 pr-6 md:pl-12 md:pr-8 py-8">
                 <p className="text-lg md:text-xl font-semibold text-slate-100">
-                  记忆大师是如何记住圆周率后几千位的？
+                还记得那些记忆大师吗？他们是如何记住圆周率后几千位的？
                 </p>
                 <p className="mt-2 text-slate-300 text-sm md:text-base text-right">
-                  ——发散与联想
+                  答案是发散与联想
                 </p>
               </GridPatternCardBody>
               </GridPatternCard>

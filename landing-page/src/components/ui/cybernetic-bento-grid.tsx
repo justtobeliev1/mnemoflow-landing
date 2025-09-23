@@ -50,7 +50,7 @@ export const CyberneticBentoGrid = () => {
           <BentoItem className="col-span-2 row-span-2 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
-                助记词，更是与你共同成长的伙伴
+                助记词——与你共同成长的伙伴
               </h2>
               <p className="mt-2 text-slate-300 leading-relaxed">
                 Mnemoflow 的 AI 引擎是一个<strong className="font-extrabold">持续学习</strong>与<strong className="font-extrabold">自我进化</strong>的伙伴<br />你可根据偏好随时再生成场景；每一次交互，都会让助记词更“戳你”
@@ -134,7 +134,7 @@ export const CyberneticBentoGrid = () => {
 
           <BentoItem className="row-span-2">
             <h2 className="text-xl md:text-2xl font-bold text-white">记忆的艺术，当交给科学的“调度”</h2>
-            <p className="mt-2 text-slate-300 text-sm leading-relaxed"><br /><br /><br />“记住”是一种主观感觉，但记忆的巩固需要科学的调度 <br />优秀的助记词也应该搭配高效的复习策略<br />我们用先进的 FSRS 间隔重复算法取代传统的艾宾浩斯曲线，为你规划最高效、最个性化的复习路径</p>
+            <p className="mt-2 text-slate-300 text-sm leading-relaxed"><br />“记住”是一种主观感觉，但记忆的巩固需要科学的调度 <br />优秀的助记词也应该搭配高效的复习策略<br />基于产品特性，我们摒弃了传统的艾宾浩斯曲线，采用更个性化的复习策略<br />先进的 FSRS 间隔重复算法将为你规划最高效、最个性化的复习路径<br />复习，当因人而异<br />千人千面的大脑，怎能用同一套艾宾浩斯公式框住？</p>
           </BentoItem>
 
           <BentoItem className="col-span-2">

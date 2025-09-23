@@ -17,7 +17,7 @@ export function LampDemo() {
         }}
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-6 md:py-8 bg-clip-text text-center text-4xl font-extrabold tracking-tight text-transparent leading-snug md:leading-snug md:text-7xl"
       >
-        记忆不是一场蛮力对抗 <br /> 而是一场优雅的连接构建
+        其实，记单词可以很有趣 <br /> ——当大脑天性遇上AI创意
       </motion.h1>
     </LampContainer>
   );

@@ -32,14 +32,14 @@ export default function Home() {
         <LampDemo />
       </section>
       
-      {/* 第六页：产品特性展示 */}
-      <section id="features-section">
-        <MnemoflowFeatures />
-      </section>
-
-      {/* 第七页：对话式挤牙膏页面 */}
+      {/* 第六页：对话式挤牙膏页面 */}
       <section id="dialogue-section">
         <ToothpasteDialoguePage />
+      </section>
+
+      {/* 第七页：产品特性展示 */}
+      <section id="features-section">
+        <MnemoflowFeatures />
       </section>
 
       {/* 第八页：产品亮点 Bento Grid */}
