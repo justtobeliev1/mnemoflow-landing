@@ -34,13 +34,13 @@ const cards = [
 
 const REVELATIONS: Array<React.ReactNode> = [
   (
-    <div key="three" className="space-y-4">
+    <div key="one" className="space-y-4">
       <h3 className="text-2xl md:text-3xl font-bold mb-6">现象之痛：为何记单词如此“费力”？</h3>
       <p className="text-slate-300 leading-relaxed font-light">
-        传统的“拼写-发-音-释义”方法，是一种<strong className="font-extrabold">蛮力链接</strong>。它强迫你的大脑进行孤立的、高强度的匹配工作，每一次记忆都是一次强行将两个神经元建立联系的苦旅。
+        传统的“拼写-发音-释义”方法，是一种<strong className="font-extrabold">蛮力链接</strong>。它强迫你的大脑进行孤立的、高强度的匹配工作，每一次记忆都是一次强行将两个神经元建立联系的苦旅。
       </p>
       <p className="text-slate-300 leading-relaxed font-light">
-        这需要付出高昂的<strong className="font-extrabold">意志力成本</strong>，并且效率低下。因为这种方式完全忽略了大脑最擅长的事情——寻找模式和建立连接。你所进行的，是一种<strong className="font-extrabold">知识的线性增长</strong>，而非<strong className="font-extrabold">指数级成长</strong>。
+        尽管付出了高昂的<strong className="font-extrabold">时间和意志力成本</strong>，却且效率低下。因为这种方式完全忽略了大脑最擅长的事情——寻找模式和建立连接。你所进行的，是一种<strong className="font-extrabold">知识的线性增长</strong>，而非<strong className="font-extrabold">指数级成长</strong>。
       </p>
     </div>
   ),
@@ -59,7 +59,7 @@ const REVELATIONS: Array<React.ReactNode> = [
     </div>
   ),
   (
-    <div key="one" className="space-y-4">
+    <div key="three" className="space-y-4">
       <h3 className="text-2xl md:text-3xl font-bold mb-6">后果之痛：我们失去了什么？</h3>
       <p className="text-slate-300 leading-relaxed font-light">
         比效率低下更可怕的，是<strong className="font-extrabold">内在动机的枯竭</strong>。
@@ -89,7 +89,7 @@ export default function RevelationInteractivePage() {
             <div className="w-full max-w-screen-2xl mx-auto">
               <div className="grid grid-cols-1 gap-10 md:gap-16 lg:gap-20 md:grid-cols-12 w-full">
                 {/* Left: interactive stacked cards */}
-                <div className="md:col-span-5 w-full flex items-center justify-center">
+                <div className="md:col-span-5 w-full flex items-center justify-center z-10">
                   <DisplayCards
                     cards={cards}
                     onCardHover={(idx) => setActive(idx)}
@@ -98,7 +98,7 @@ export default function RevelationInteractivePage() {
                 </div>
 
                 {/* Right: dynamic revelation panel (no frame) */}
-                <div className="md:col-span-7 w-full flex items-center">
+                <div className="md:col-span-7 w-full flex items-center relative z-20">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={active}

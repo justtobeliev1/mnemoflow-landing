@@ -5,14 +5,17 @@ import { motion } from "framer-motion";
 import GridBackground from "@/components/ui/grid-background";
 import { GridPatternCard, GridPatternCardBody } from "@/components/ui/card-with-grid-pattern";
 import { NoisePatternCard, NoisePatternCardBody } from "@/components/ui/card-with-noise-pattern";
+import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 
-const appear = (i: number) => ({
+const appear = (i: number, enabled: boolean) => ({
   initial: { opacity: 0, y: 20 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: { delay: 2 * (i - 1), duration: 1.0, ease: "easeOut" },
-  },
+  animate: enabled
+    ? {
+        opacity: 1,
+        y: 0,
+        transition: { delay: 2 * (i - 1), duration: 1.0, ease: "easeOut" },
+      }
+    : undefined,
 });
 
 function sideMaskStyle(side: "left" | "right"): React.CSSProperties {
@@ -34,13 +37,14 @@ function sideMaskStyle(side: "left" | "right"): React.CSSProperties {
 }
 
 export default function ToothpasteDialoguePage() {
+  const { ref, isVisible } = useScrollTrigger<HTMLDivElement>({ threshold: 0.2 });
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100">
       <GridBackground className="absolute inset-0 w-full h-full" startOnView />
-      <div className="relative z-10 w-full mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
-        <div className="space-y-8 md:space-y-10">
+      <div ref={ref} className="relative z-10 w-full mx-auto max-w-5xl px-6 sm:px-8 md:px-12 py-16 md:py-24 min-h-screen flex items-center">
+        <div className="w-full space-y-8 md:space-y-10">
           {/* 1 左 */}
-          <motion.div {...appear(1)} className="flex justify-start">
+          <motion.div {...appear(1, isVisible)} className="flex justify-start">
             <div
               className="relative w-fit max-w-[90vw] md:max-w-3xl -translate-x-1 md:-translate-x-10"
               style={sideMaskStyle("left")}
@@ -59,7 +63,7 @@ export default function ToothpasteDialoguePage() {
           </motion.div>
 
           {/* 2 右 */}
-          <motion.div {...appear(2)} className="flex justify-end">
+          <motion.div {...appear(2, isVisible)} className="flex justify-end">
             <div
               className="relative w-fit max-w-[90vw] md:max-w-3xl translate-x-1 md:translate-x-10"
               style={sideMaskStyle("right")}
@@ -78,7 +82,7 @@ export default function ToothpasteDialoguePage() {
           </motion.div>
 
           {/* 3 左 */}
-          <motion.div {...appear(3)} className="flex justify-start">
+          <motion.div {...appear(3, isVisible)} className="flex justify-start">
             <div
               className="relative w-fit max-w-[90vw] md:max-w-3xl -translate-x-1 md:-translate-x-10"
               style={sideMaskStyle("left")}
@@ -97,7 +101,7 @@ export default function ToothpasteDialoguePage() {
           </motion.div>
 
           {/* 4 右 */}
-          <motion.div {...appear(4)} className="flex justify-end">
+          <motion.div {...appear(4, isVisible)} className="flex justify-end">
             <div
               className="relative w-fit max-w-[90vw] md:max-w-3xl translate-x-1 md:translate-x-10"
               style={sideMaskStyle("right")}

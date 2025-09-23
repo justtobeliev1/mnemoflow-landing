@@ -40,12 +40,13 @@ export const CyberneticBentoGrid = () => {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100">
       <GridBackground className="absolute inset-0 w-full h-full" startOnView />
-      <div className="relative z-10 w-full mx-auto max-w-6xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
+      <div className="relative z-10 w-full mx-auto max-w-6xl px-6 sm:px-8 md:px-12 py-16 md:py-24 min-h-screen flex flex-col">
         <h1 className="text-4xl sm:text-5xl font-bold text-white text-center mb-8">
           Mnemoflow，不止于Mnemonic
         </h1>
 
-        <div className="bento-grid">
+        <div className="flex-1 flex items-center">
+          <div className="bento-grid">
           <BentoItem className="col-span-2 row-span-2 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
@@ -145,6 +146,7 @@ export const CyberneticBentoGrid = () => {
             <h2 className="text-xl md:text-2xl font-bold text-white">用词汇，探索未至之境</h2>
             <p className="mt-2 text-slate-300 text-sm leading-relaxed">我们相信，语言学习的终点，不是记住一本厚厚的词典，而是获得睁眼看世界的能力<br />愿 Mnemoflow 成为你语言学习之旅的起点！</p>
           </BentoItem>
+          </div>
         </div>
       </div>
 

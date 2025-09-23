@@ -113,6 +113,8 @@ export function BackgroundPaths({
                                 document.getElementById('first-principles-section')?.scrollIntoView({
                                     behavior: 'smooth'
                                 });
+                                // 分发自定义事件，通知第一性原理页可以启动动画
+                                window.dispatchEvent(new CustomEvent('digital-serenity:start'));
                             }}
                         >
                             了解 Mnemoflow 的设计哲学 →

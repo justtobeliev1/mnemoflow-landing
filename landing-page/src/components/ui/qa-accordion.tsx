@@ -8,11 +8,12 @@ export default function QandAAccordion() {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100">
       <GridBackground className="absolute inset-0 w-full h-full" startOnView />
-      <div className="relative z-10 w-full mx-auto max-w-4xl px-6 sm:px-8 md:px-12 py-16 md:py-24">
+      <div className="relative z-10 w-full mx-auto max-w-4xl px-6 sm:px-8 md:px-12 py-16 md:py-24 min-h-screen flex flex-col">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-8">
           关于 Mnemoflow，你可能想问
         </h2>
 
+        <div className="flex-1 flex items-center">
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="q1">
             <AccordionTrigger className="text-left">
@@ -83,6 +84,7 @@ export default function QandAAccordion() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
+        </div>
       </div>
     </section>
   );

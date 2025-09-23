@@ -23,7 +23,7 @@ export function AnimatedHero() {
     <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100">
       <GridBackground className="absolute inset-0 w-full h-full" hideMidLine startOnView />
       <div className="relative z-10 w-full px-6 md:px-12 text-center">
-        <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
+        <div className="flex gap-8 items-center justify-center flex-col min-h-screen">
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl tracking-tighter text-center font-regular">
               <span className="text-slate-100 font-light">Experience</span>
@@ -35,7 +35,7 @@ export function AnimatedHero() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-x-0 font-semibold whitespace-nowrap"
+                    className="absolute inset-x-0 font-semibold whitespace-nowrap text-center"
                   >
                     {titles[titleIndex]}
                   </motion.span>

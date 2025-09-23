@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
+import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 import {
   GridPatternCard,
   GridPatternCardBody,
@@ -12,20 +14,37 @@ import {
 import GridBackground from "@/components/ui/grid-background";
 
 const MemoryPrinciplesPage = () => {
-  return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100 flex flex-col justify-start">
-      <GridBackground className="w-full" startOnView>
-        <div className="relative z-10 w-full px-6 py-24 sm:px-12 md:px-16 lg:px-24">
-          {/* 左上角标题 */}
-          <h2 className="text-left font-extrabold tracking-tight text-slate-100 text-3xl md:text-5xl lg:text-6xl pt-24">
-            大脑，为连接而生
-          </h2>
+  const { ref, isVisible } = useScrollTrigger<HTMLDivElement>({ threshold: 0.2 });
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.1, ease: "easeOut" },
+    },
+  };
 
-          {/* 两列卡片：大屏并排，小屏纵向堆叠；卡片内容加粗、换行 */}
-          <div className="mt-16 grid grid-cols-1 gap-6 md:gap-8 lg:gap-10 md:grid-cols-2">
+  return (
+    <section className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 text-slate-100 flex flex-col justify-center">
+      {/* 左上角固定标题（相对于整段页面锚定） */}
+      <div className="absolute top-6 left-6 sm:top-20 sm:left-12 z-30">
+        <h2 className="text-left font-extrabold tracking-tight text-slate-100 text-3xl md:text-5xl lg:text-6xl">
+          大脑，为连接而生
+        </h2>
+      </div>
+      <GridBackground className="w-full" startOnView>
+        <div ref={ref} className="relative z-10 w-full px-6 py-24 sm:px-12 md:px-16 lg:px-24">
+
+          {/* 两列卡片居中：容器使用 max-w 和 mx-auto，垂直空间用 min-h 控制 */}
+          <div className="mt-12 md:mt-16 lg:mt-20 max-w-6xl mx-auto grid grid-cols-1 gap-6 md:gap-8 lg:gap-10 md:grid-cols-2 items-stretch">
             {/* 卡片A */}
-            <GridPatternCard className="rounded-xl border-zinc-800 bg-zinc-950">
-              <GridPatternCardBody className="p-6 md:p-8 py-12">
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+            >
+              <GridPatternCard className="rounded-xl border-zinc-800 bg-zinc-950 h-full">
+                <GridPatternCardBody className="p-6 md:p-8 py-12 h-full">
                 <div className="flex items-start gap-4 md:gap-5">
                   <div className="shrink-0">
                     <svg
@@ -71,10 +90,17 @@ const MemoryPrinciplesPage = () => {
                 </div>
               </GridPatternCardBody>
             </GridPatternCard>
+            </motion.div>
 
             {/* 卡片B */}
-            <NoisePatternCard className="rounded-xl border-zinc-800 bg-zinc-950">
-              <NoisePatternCardBody className="p-6 md:p-8 py-12">
+            <motion.div
+              variants={cardVariants}
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+              transition={{ delay: 0.15 }}
+            >
+              <NoisePatternCard className="rounded-xl border-zinc-800 bg-zinc-950 h-full">
+                <NoisePatternCardBody className="p-6 md:p-8 py-12 h-full">
                 <div className="flex items-start gap-4 md:gap-5">
                   <div className="shrink-0">
                     <svg
@@ -101,7 +127,7 @@ const MemoryPrinciplesPage = () => {
                     </h3>
                     <p className="text-sm md:text-base leading-relaxed text-slate-300">
                       <span className="font-semibold text-slate-200">
-                        记忆沦为信息孤岛
+                        记忆点沦为孤岛
                       </span>
                       <br />
                       一个孤立的信息，难以被抵达，没有连接，终被遗忘
@@ -124,6 +150,7 @@ const MemoryPrinciplesPage = () => {
                 </div>
               </NoisePatternCardBody>
             </NoisePatternCard>
+            </motion.div>
           </div>
         </div>
       </GridBackground>
