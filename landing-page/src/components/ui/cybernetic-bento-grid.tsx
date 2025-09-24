@@ -134,7 +134,7 @@ export const CyberneticBentoGrid = () => {
 
           <BentoItem className="row-span-2">
             <h2 className="text-xl md:text-2xl font-bold text-white">记忆的艺术，当交给科学的“调度”</h2>
-            <p className="mt-2 text-slate-300 text-sm leading-relaxed"><br />“记住”是一种主观感觉，但记忆的巩固需要科学的调度 <br />优秀的助记词也应该搭配高效的复习策略<br />基于产品特性，我们摒弃了传统的艾宾浩斯曲线，采用更个性化的复习策略<br />先进的 FSRS 间隔重复算法将为你规划最高效、最个性化的复习路径<br />复习，当因人而异<br />千人千面的大脑，怎能用同一套艾宾浩斯公式框住？</p>
+            <p className="mt-2 text-slate-300 text-sm leading-relaxed"><br />“记住”是一种主观感觉，但记忆的巩固需要科学的调度 <br />优秀的助记词也应该搭配高效的复习策略<br />基于产品特性，我们摒弃了传统的艾宾浩斯曲线，采用更个性化的复习策略<br />先进的 FSRS 间隔重复算法将为你规划最高效的复习路径<br /><br />复习，当因人而异<br />千人千面的大脑，怎能用同一套艾宾浩斯公式框住？</p>
           </BentoItem>
 
           <BentoItem className="col-span-2">
