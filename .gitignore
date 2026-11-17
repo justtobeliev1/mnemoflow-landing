@@ -37,3 +37,5 @@ coverage/
 # 其他工具
 .vercel/  # Vercel 部署缓存
 .netlify/ # Netlify 部署缓存
+# TypeScript 增量编译缓存
+*.tsbuildinfo
