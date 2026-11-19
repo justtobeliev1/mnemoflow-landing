@@ -173,16 +173,13 @@ PALETTES = [
     ("ink", "墨蓝", "从灰蓝走到页面文字用的那个深蓝。几乎是单色，最克制", ["#C3C9E6", "#7E88C2", "#3F4A8C", "#1B2140"]),
 ]
 
-def favicon():
-    """标签页图标：最早那版紫色的扇，不带底。浏览器是深色界面时自动换成白色那版"""
-    d1, body, (x0, y0, x1, y1) = color_fan("color", parts=True, shadows=False)
-    d2, _, _ = color_fan("white", parts=True, shadows=False)
+def favicon(stops):
+    """标签页图标：破晓配色的扇，不带底。浅色和深色的浏览器界面都用这一张，不切换"""
+    defs, body, (x0, y0, x1, y1) = color_fan("color", stops, parts=True, shadows=False)
     side = max(x1 - x0, y1 - y0) + 8
     vx, vy = (x0 + x1 - side) / 2, (y0 + y1 - side) / 2
-    body = body.replace('fill="url(#cf)"', 'class="c"').replace('<circle r="10" fill="#fff"/>', '<circle r="10" class="d"/>')
-    grads = d1.split("<filter")[0] + d2.split("<filter")[0].replace('id="cf"', 'id="cw"')
-    css = ".c{fill:url(#cf)}.d{fill:#fff}@media (prefers-color-scheme:dark){.c{fill:url(#cw)}.d{fill:#7C5CE0}}"
-    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx:.1f} {vy:.1f} {side:.1f} {side:.1f}"><style>{css}</style><defs>{grads}</defs>{body}</svg>\n'
+    defs = defs.split("<filter")[0] + defs.split("</filter>")[1]  # 没有影子，模糊滤镜也不用带
+    return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vx:.1f} {vy:.1f} {side:.1f} {side:.1f}"><defs>{defs}</defs>{body}</svg>\n'
 
 def home_icon(stops):
     """主屏图标（iOS 会自己切圆角，所以底是方的、不透明）：浅色底上放破晓配色的扇"""
@@ -198,7 +195,7 @@ files = {
     "fan-color.svg": color_fan("color"), "fan-color-white.svg": color_fan("white"),
     "fan-black.svg": color_fan("black"), "fan-white.svg": color_fan("mono-white"),
     **{f"fan-grad-{pid}.svg": color_fan("color", stops) for pid, _, _, stops in PALETTES},
-    "favicon.svg": favicon(), "home-icon.svg": home_icon(PALETTES[0][3]),
+    "favicon.svg": favicon(PALETTES[0][3]), "home-icon.svg": home_icon(PALETTES[0][3]),
     "fan-mark.svg": mark(BIG), "fan-mark-small.svg": mark(SMALL), "fan-mark-small-white.svg": mark(SMALL, "#fff"),
 }
 for f in os.listdir(out):

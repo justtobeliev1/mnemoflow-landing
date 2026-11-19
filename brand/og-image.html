@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- 分享预览图（1200×630）的源文件。用浏览器打开，按 1200×630 的窗口截图，存成 landing-page/src/app/opengraph-image.png -->
+<html lang="zh-CN">
+<meta charset="utf-8">
+<link rel="stylesheet" href="../landing-page/node_modules/misans/lib/Normal/MiSansVF.min.css">
+<link rel="stylesheet" href="../landing-page/node_modules/@fontsource-variable/geist/wght.css">
+<style>
+  html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#fff;color:#1B2140;font-family:"Geist Variable","MiSans VF","MiSans",sans-serif;-webkit-font-smoothing:antialiased}
+  /* 右边一条斜着切下来的光带，颜色是破晓的四个色标 */
+  .band{position:absolute;inset:0;clip-path:polygon(67% 0,100% 0,100% 100%,51% 100%);
+    background:
+      radial-gradient(60% 70% at 88% 12%,#F0B27A 0%,rgba(240,178,122,0) 70%),
+      radial-gradient(55% 70% at 58% 96%,#7C8CF0 0%,rgba(124,140,240,0) 72%),
+      radial-gradient(50% 60% at 96% 78%,#E58FB0 0%,rgba(229,143,176,0) 70%),
+      linear-gradient(120deg,#8E9BF3 0%,#A88BEB 40%,#E58FB0 78%,#F0B27A 100%)}
+  .band::after{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 72% 44%,rgba(255,255,255,.34),rgba(255,255,255,0))}
+  .copy{position:absolute;left:84px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;width:640px}
+  .logo{display:flex;align-items:center;gap:14px;font-size:30px;font-weight:700;letter-spacing:-.02em}
+  .logo img{height:40px}
+  h1{margin:38px 0 0;font-size:76px;line-height:1.14;font-weight:700;letter-spacing:-.03em}
+  p{margin:30px 0 0;font-size:28px;color:#5B6285;letter-spacing:.01em}
+  .site{position:absolute;left:84px;bottom:46px;font-size:21px;color:#8A90AE;letter-spacing:.01em}
+  .tile{position:absolute;right:96px;top:50%;width:318px;height:318px;margin-top:-159px;border-radius:74px;background:linear-gradient(#fff,#F1F2FA);
+    box-shadow:0 46px 80px -28px rgba(46,38,128,.5),0 12px 26px -10px rgba(46,38,128,.28),inset 0 0 0 1.5px rgba(255,255,255,.9);transform:rotate(-6deg);display:grid;place-items:center}
+  .tile img{width:214px;margin-top:6px}
+</style>
+<body>
+  <div class="band"></div>
+  <div class="copy">
+    <div class="logo"><img src="icons/fan-grad-dawn.svg" alt="">Mnemoflow</div>
+    <h1>这一页看完，<br>你会记住一个词</h1>
+    <p>AI 背单词 · 先看懂，再记住</p>
+  </div>
+  <div class="site">mnemoflow.com</div>
+  <div class="tile"><img src="icons/fan-grad-dawn.svg" alt=""></div>
+</body>
+</html>

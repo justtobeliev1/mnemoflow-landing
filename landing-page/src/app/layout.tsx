@@ -4,10 +4,16 @@ import "misans/lib/Normal/MiSansVF.min.css";
 import "../styles/globals.css";
 import { MotionProvider } from "@/components/v2/motion-provider";
 
+const TITLE = "Mnemoflow · 背单词，有更好的办法";
+const DESCRIPTION = "Mnemoflow 用 AI 为每个英语单词拆出一条讲得通的联想，把音、形、义连成一个场景，再用 FSRS 算法安排复习。";
+
 export const metadata: Metadata = {
-  title: "Mnemoflow · 这一页看完，你会记住一个词",
-  description:
-    "Mnemoflow 用 AI 为每个英语单词拆出一条讲得通的联想，把音、形、义连成一个场景，再用 FSRS 算法安排复习。",
+  // 分享预览图（同目录的 opengraph-image.png）要用完整网址，这里是线上的正式域名
+  metadataBase: new URL("https://www.mnemoflow.com"),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: { type: "website", url: "/", siteName: "Mnemoflow", locale: "zh_CN", title: TITLE, description: DESCRIPTION },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 export const viewport: Viewport = {
